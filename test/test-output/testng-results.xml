@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-06-08T00:23:26Z" name="Default suite" finished-at="2022-06-08T00:24:04Z" duration-ms="37587">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunners.TestRunner2@10cf09e8]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2022-06-08T00:23:26Z" name="Default test" finished-at="2022-06-08T00:24:04Z" duration-ms="37587">
+      <class name="TestRunners.TestRunner2">
+        <test-method is-config="true" signature="beforeRun()[pri:0, instance:TestRunners.TestRunner2@10cf09e8]" started-at="2022-06-08T05:53:26Z" name="beforeRun" finished-at="2022-06-08T05:53:26Z" duration-ms="14" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeRun -->
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:TestRunners.TestRunner2@10cf09e8]" started-at="2022-06-08T05:53:26Z" name="setUpClass" finished-at="2022-06-08T05:53:27Z" duration-ms="312" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@747f6c5a]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunners.TestRunner2@10cf09e8]" started-at="2022-06-08T05:53:27Z" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-08T05:53:47Z" duration-ms="20150" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get_Price_of_product_from_Flipkart"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Job_Interview_Assignemnt_Scenarios2"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunners.TestRunner2@10cf09e8]" started-at="2022-06-08T05:53:47Z" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-06-08T05:54:04Z" duration-ms="17079" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get_Price_of_product_from_Amazon_and_Compare"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Job_Interview_Assignemnt_Scenarios2"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:TestRunners.TestRunner2@10cf09e8]" started-at="2022-06-08T05:54:04Z" name="tearDownClass" finished-at="2022-06-08T05:54:04Z" duration-ms="15" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method is-config="true" signature="afterRun()[pri:0, instance:TestRunners.TestRunner2@10cf09e8]" started-at="2022-06-08T05:54:04Z" name="afterRun" finished-at="2022-06-08T05:54:05Z" duration-ms="646" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterRun -->
+      </class> <!-- TestRunners.TestRunner2 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
