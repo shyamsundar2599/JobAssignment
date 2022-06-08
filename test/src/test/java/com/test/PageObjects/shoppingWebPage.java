@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
+import org.apache.commons.collections4.bag.SynchronizedSortedBag;
 import org.apache.log4j.Logger;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -193,8 +194,18 @@ public class shoppingWebPage {
 					XSSFWorkbook workbook = new XSSFWorkbook(fi);
 					XSSFSheet sheet = workbook.getSheet("TestData");
 					int rowCount = sheet.getLastRowNum();
-					sheet.createRow(rowCount + 1).createCell(0).setCellValue("Price in " + appName);
-					sheet.getRow(rowCount + 1).createCell(1).setCellValue(price);
+					
+					if(rowCount<2) {
+						sheet.createRow(rowCount + 1).createCell(0).setCellValue("Price in " + appName);
+						sheet.getRow(rowCount + 1).createCell(1).setCellValue(price);
+					}else {
+						for(int j =1; j<=rowCount; j++) {
+							if(sheet.getRow(j).getCell(0).getStringCellValue().toLowerCase().contains(appName.toLowerCase())) {
+								sheet.getRow(j).getCell(1).setCellValue(price);
+								break;
+							}
+						}
+					}
 					System.out.println("Info: "+productName+" price in "+appName+" Website is Rs."+price);
 					
 					FileOutputStream fo = new FileOutputStream(System.getProperty("user.dir") + File.separator + "src"
