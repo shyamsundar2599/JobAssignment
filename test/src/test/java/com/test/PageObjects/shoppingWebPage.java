@@ -93,7 +93,7 @@ public class shoppingWebPage {
 					wait.until(ExpectedConditions.visibilityOf(amazonSearchInputTextBox));
 					amazonSearchInputTextBox.sendKeys(value);
 				}
-				
+
 				break;
 
 			default:
@@ -102,7 +102,7 @@ public class shoppingWebPage {
 			}
 
 			logger.info("Pass: " + value + " value has been Entered successfully ");
-			System.out.println("Pass: " + value + " value has been Entered successfully in "+field);
+			System.out.println("Pass: " + value + " value has been Entered successfully in " + field);
 		} catch (Exception e) {
 			logger.error("Error Occurred due to following Exception: " + e);
 		}
@@ -112,7 +112,6 @@ public class shoppingWebPage {
 	public shoppingWebPage performAction(Object... args) throws Exception {
 		try {
 			String action = args[0].toString().trim();
-			
 
 			switch (action.replace(" ", "").toUpperCase()) {
 			case "SEARCH":
@@ -139,10 +138,12 @@ public class shoppingWebPage {
 				for (int i = 0; i <= rowCount; i++) {
 					String key = sheet.getRow(i).getCell(0).getStringCellValue();
 					if (key.toLowerCase().contains("flipkart")) {
-						flipkartPrice = Integer.parseInt(sheet.getRow(i).getCell(1).getStringCellValue().replace(",", ""));
+						flipkartPrice = Integer
+								.parseInt(sheet.getRow(i).getCell(1).getStringCellValue().replace(",", ""));
 					} else if (key.toLowerCase().contains("amazon")) {
-						amazonPrice = Integer.parseInt(sheet.getRow(i).getCell(1).getStringCellValue().replace(",", ""));
-					} 
+						amazonPrice = Integer
+								.parseInt(sheet.getRow(i).getCell(1).getStringCellValue().replace(",", ""));
+					}
 				}
 				fi.close();
 				if (amazonPrice > flipkartPrice) {
@@ -194,20 +195,26 @@ public class shoppingWebPage {
 					XSSFWorkbook workbook = new XSSFWorkbook(fi);
 					XSSFSheet sheet = workbook.getSheet("TestData");
 					int rowCount = sheet.getLastRowNum();
-					
-					if(rowCount<2) {
+
+					if ((rowCount < 2) && !(sheet.getRow(rowCount).getCell(0).getStringCellValue().toLowerCase()
+							.contains(appName.toLowerCase()))) {
+
 						sheet.createRow(rowCount + 1).createCell(0).setCellValue("Price in " + appName);
 						sheet.getRow(rowCount + 1).createCell(1).setCellValue(price);
-					}else {
-						for(int j =1; j<=rowCount; j++) {
-							if(sheet.getRow(j).getCell(0).getStringCellValue().toLowerCase().contains(appName.toLowerCase())) {
+
+					} else if(rowCount>=2){
+						for (int j = 1; j <= rowCount; j++) {
+							if (sheet.getRow(j).getCell(0).getStringCellValue().toLowerCase()
+									.contains(appName.toLowerCase())) {
 								sheet.getRow(j).getCell(1).setCellValue(price);
 								break;
 							}
 						}
+					}else {
+						sheet.getRow(rowCount).createCell(1).setCellValue(price);
 					}
-					System.out.println("Info: "+productName+" price in "+appName+" Website is Rs."+price);
-					
+					System.out.println("Info: " + productName + " price in " + appName + " Website is Rs." + price);
+
 					FileOutputStream fo = new FileOutputStream(System.getProperty("user.dir") + File.separator + "src"
 							+ File.separator + "test" + File.separator + "java" + File.separator + "resources"
 							+ File.separator + "TestData.xlsx");
