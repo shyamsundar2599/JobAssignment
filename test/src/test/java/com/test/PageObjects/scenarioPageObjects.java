@@ -49,11 +49,14 @@ public class scenarioPageObjects {
 			if (CoreTestFactory.getDriver().findElement(By.xpath("//*[@class='gui-select-value']")).getText().trim()
 					.equalsIgnoreCase(userEnteredValue)) {
 				logger.info("Pass: " + userEnteredValue + " value has been successfully selected in dropdown");
+				System.out.println("Pass: " + userEnteredValue + " value has been successfully selected in dropdown");
 			} else {
 				logger.error("Fail: " + userEnteredValue + " value is not selected in dropdown");
+				System.out.println("Fail: " + userEnteredValue + " value is not selected in dropdown");
 			}
 		} catch (Exception e) {
 			logger.error("Error Occurred due to following Exception: " + e);
+			System.out.println("Error Occurred due to following Exception: " + e);
 		}
 		return this;
 	}
@@ -70,13 +73,13 @@ public class scenarioPageObjects {
 						.findElement(By.xpath("(//*[@class = 'gui-structure-info-panel']//div//div//b)[1]")).getText();
 //				Thread.sleep(1000);
 				if (ActualGridRowCountUI.equals(verifyInput)) {
-					System.out.println("pass");
+					System.out.println("Pass: " + ActualGridRowCountUI + " Rows has been displayed in the Grid");
 					logger.info("Pass: " + ActualGridRowCountUI + " Rows has been displayed in the Grid");
 				} else {
-
+					
 					logger.error("Expected: " + verifyInput + " Rows has been displayed in the Grid");
 					logger.error("Fail: " + ActualGridRowCountUI + " Rows has been displayed in the Grid");
-
+					System.out.println("Fail: " + ActualGridRowCountUI + " Rows has been displayed in the Grid");
 				}
 				break;
 			default:
@@ -187,6 +190,8 @@ public class scenarioPageObjects {
 
 				fo.close();
 				logger.info("Pass: Report generated successfully");
+				System.out.println("Pass: Report generated successfully for the Required condition");
+				System.out.println("!!You can find the report outputFile.xlsx in resources folder");
 				break;
 			default:
 				logger.error("Fail: " + Condition.split(":=")[0] + " option is not listed in the switch case options");
